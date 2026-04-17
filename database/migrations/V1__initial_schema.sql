@@ -7,7 +7,7 @@ CREATE TABLE users (
     nickname        VARCHAR(20) NOT NULL,
     gender          CHAR NOT NULL,
     phone_number    VARCHAR(15),
-    birth_date      DATE NOT NULL
+    birth_date      DATE NOT NULL,
     CONSTRAINT pk_users PRIMARY KEY (id)
 );
 
