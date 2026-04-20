@@ -1,6 +1,7 @@
 <?php
 
 namespace facade;
+use dto\UserFormDTO;
 use service\UserService;
 use User;
 
@@ -11,10 +12,10 @@ class UserFacade {
         $this->userService = new UserService();
     }
 
-    function createUser(mixed $data): User {
+    function createUser(UserFormDTO $userFormDTO): User {
         $required = ['full_name', 'email', 'nickname', 'gender', 'birth_date', 'phone_number'];
 
-        $missing = array_diff($required, array_keys($data));
+        $missing = array_diff($required, array_keys((array)$userFormDTO));
 
         if ($missing) {
             http_response_code(400);
@@ -24,9 +25,7 @@ class UserFacade {
             ]);
         }
 
-        $user = $this->userService->createUser($data);
-
-        http_response_code(201);
+        $this->userService->createUser($user);
         return $user;
     }
 }

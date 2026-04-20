@@ -2,6 +2,7 @@
 
 namespace service;
 use repository\UserRepository;
+use User;
 
 class UserService {
 
@@ -11,7 +12,8 @@ class UserService {
         $this->userRepository = new UserRepository();
     }
 
-    public function createUser(mixed $data): null {
-        return $this->userRepository->save($data);
+    public function createUser(User $user): null
+    {
+        return $this->userRepository->save($user);
     }
 }
