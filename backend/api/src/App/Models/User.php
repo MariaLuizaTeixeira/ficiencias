@@ -1,11 +1,11 @@
 <?php
 namespace app\Models;
 
-use Cassandra\Date;
+use App\Enum\UserType;
 use DateTime;
 
-class User {
-    // atributos
+abstract class User {
+    // attributes
     private int $id;
     private string $fullName;
     private string $email;
@@ -13,8 +13,9 @@ class User {
     private DateTime $createdAt;
     private DateTime $updatedAt;
     private bool $emailVerified;
+    private UserType $type;
 
-    // getters e setters
+    // getters and setters
     public function getId(): int
     {
         return $this->id;
@@ -83,5 +84,10 @@ class User {
     public function setEmailVerified(bool $emailVerified): void
     {
         $this->emailVerified = $emailVerified;
+    }
+
+    public function getType(): UserType
+    {
+        return $this->type;
     }
 }

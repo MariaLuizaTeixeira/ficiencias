@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use AllowDynamicProperties;
 use App\Enum\GenderType;
+use App\Enum\UserType;
 use Cassandra\Date;
 
+#[AllowDynamicProperties]
 class Student extends User {
     // attributes
     private int $lives;
@@ -14,6 +17,14 @@ class Student extends User {
     private GenderType $gender;
     private string $phoneNumber;
     private string $profilePicture;
+
+    // constructor
+    public function __construct() {
+        $this->lives = 5;
+        $this->streak = 0;
+        $this->profilePicture = "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1906669723.jpg";
+        $this->userType = UserType::STUDENT;
+    }
 
     // getters and setters
     public function getLives(): int
