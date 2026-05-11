@@ -4,7 +4,7 @@ namespace App\Models;
 
 use AllowDynamicProperties;
 use App\Enum\GenderType;
-use App\Enum\UserType;
+use App\Enum\RoleType;
 use Cassandra\Date;
 
 #[AllowDynamicProperties]
@@ -23,7 +23,7 @@ class Student extends User {
         $this->lives = 5;
         $this->streak = 0;
         $this->profilePicture = "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1906669723.jpg";
-        $this->userType = UserType::STUDENT;
+        $this->userType = RoleType::STUDENT;
     }
 
     // getters and setters

@@ -1,7 +1,7 @@
 <?php
 namespace app\Models;
 
-use App\Enum\UserType;
+use App\Enum\RoleType;
 use DateTime;
 
 abstract class User {
@@ -13,7 +13,7 @@ abstract class User {
     private DateTime $createdAt;
     private DateTime $updatedAt;
     private bool $emailVerified;
-    private UserType $type;
+    private RoleType $role;
 
     // getters and setters
     public function getId(): int
@@ -86,8 +86,13 @@ abstract class User {
         $this->emailVerified = $emailVerified;
     }
 
-    public function getType(): UserType
+    public function getRole(): RoleType
     {
-        return $this->type;
+        return $this->role;
+    }
+
+    public function setRole(RoleType $role): void
+    {
+        $this->role = $role;
     }
 }
