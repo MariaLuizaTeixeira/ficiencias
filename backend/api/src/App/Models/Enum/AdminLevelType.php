@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enum;
+namespace App\Models\Enum;
 
 enum AdminLevelType: string {
     case EDITOR = 'editor'; // CRUD courses, sections, lessons and questions

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enum;
+namespace App\Models\Enum;
 
 enum GenderType: string {
     case MALE = 'male';

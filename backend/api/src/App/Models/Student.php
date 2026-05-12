@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use AllowDynamicProperties;
-use App\Enum\GenderType;
-use App\Enum\RoleType;
+use App\Models\Enum\GenderType;
+use App\Models\Enum\RoleType;
 use Cassandra\Date;
 
 #[AllowDynamicProperties]

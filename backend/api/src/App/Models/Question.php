@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enum\QuestionType;
+use App\Models\Enum\QuestionType;
 
 abstract class Question {
     // attributes

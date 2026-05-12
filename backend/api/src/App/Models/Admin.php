@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use AllowDynamicProperties;
-use App\Enum\AdminLevelType;
-use App\Enum\RoleType;
+use App\Models\Enum\AdminLevelType;
+use App\Models\Enum\RoleType;
 
 #[AllowDynamicProperties]
 class Admin extends User {

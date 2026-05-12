@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enum\ContentType;
+use App\Models\Enum\ContentType;
 
 class OptionsQuestion extends Question {
     private string $content;

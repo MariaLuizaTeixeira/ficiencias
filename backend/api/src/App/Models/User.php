@@ -1,7 +1,7 @@
 <?php
 namespace app\Models;
 
-use App\Enum\RoleType;
+use App\Models\Enum\RoleType;
 use DateTime;
 
 abstract class User {

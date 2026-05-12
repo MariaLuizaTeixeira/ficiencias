@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use AllowDynamicProperties;
-use App\Enum\QuestionType;
+use App\Models\Enum\QuestionType;
 
 #[AllowDynamicProperties]
 class AssociativeQuestion extends Question {
