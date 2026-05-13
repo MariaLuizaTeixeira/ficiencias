@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use AllowDynamicProperties;
-use App\Models\Enum\GenderType;
-use App\Models\Enum\RoleType;
+use App\Models\Enums\StudentGender;
+use App\Models\Enums\UserRole;
 use Cassandra\Date;
 
 #[AllowDynamicProperties]
 class Student extends User {
-    // attributes
     private int $lives;
     private int $streak;
     private Date $birth;
     private string $nickname;
-    private GenderType $gender;
+    private StudentGender $gender;
     private string $phoneNumber;
     private string $profilePicture;
 
@@ -23,10 +22,9 @@ class Student extends User {
         $this->lives = 5;
         $this->streak = 0;
         $this->profilePicture = "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1906669723.jpg";
-        $this->userType = RoleType::STUDENT;
+        $this->userType = UserRole::STUDENT;
     }
 
-    // getters and setters
     public function getLives(): int
     {
         return $this->lives;
@@ -67,12 +65,12 @@ class Student extends User {
         $this->nickname = $nickname;
     }
 
-    public function getGender(): GenderType
+    public function getGender(): StudentGender
     {
         return $this->gender;
     }
 
-    public function setGender(GenderType $gender): void
+    public function setGender(StudentGender $gender): void
     {
         $this->gender = $gender;
     }
@@ -96,6 +94,4 @@ class Student extends User {
     {
         $this->profilePicture = $profilePicture;
     }
-
-
 }
