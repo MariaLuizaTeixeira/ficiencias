@@ -1,21 +1,19 @@
 <?php
 namespace app\Models;
 
-use App\Models\Enum\RoleType;
+use App\Models\Enums\UserRole;
 use DateTime;
 
 abstract class User {
-    // attributes
-    private int $id;
-    private string $fullName;
-    private string $email;
-    private string $passwordHash;
-    private DateTime $createdAt;
-    private DateTime $updatedAt;
-    private bool $emailVerified;
-    private RoleType $role;
+    protected int $id;
+    protected string $fullName;
+    protected string $email;
+    protected string $passwordHash;
+    protected DateTime $createdAt;
+    protected DateTime $updatedAt;
+    protected bool $emailVerified;
+    protected UserRole $role;
 
-    // getters and setters
     public function getId(): int
     {
         return $this->id;
@@ -86,12 +84,12 @@ abstract class User {
         $this->emailVerified = $emailVerified;
     }
 
-    public function getRole(): RoleType
+    public function getRole(): UserRole
     {
         return $this->role;
     }
 
-    public function setRole(RoleType $role): void
+    public function setRole(UserRole $role): void
     {
         $this->role = $role;
     }
