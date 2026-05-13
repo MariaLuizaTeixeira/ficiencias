@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Enum;
+namespace App\Models\Enums;
 
-enum GenderType: string {
+enum StudentGender: string {
     case MALE = 'male';
     case FEMALE = 'female';
     case OTHER = 'other';

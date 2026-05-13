@@ -3,25 +3,23 @@
 namespace App\Models;
 
 use AllowDynamicProperties;
-use App\Models\Enum\AdminLevelType;
-use App\Models\Enum\RoleType;
+use App\Models\Enums\AdminLevel;
+use App\Models\Enums\UserRole;
 
 #[AllowDynamicProperties]
 class Admin extends User {
-    // attributes
-    private AdminLevelType $level;
+    private AdminLevel $level;
 
     public function __construct() {
-        $this->userType = RoleType::ADMIN;
+        $this->userType = UserRole::ADMIN;
     }
 
-    // getters and setters
-    public function getLevel(): AdminLevelType
+    public function getLevel(): AdminLevel
     {
         return $this->level;
     }
 
-    public function setLevel(AdminLevelType $level): void
+    public function setLevel(AdminLevel $level): void
     {
         $this->level = $level;
     }

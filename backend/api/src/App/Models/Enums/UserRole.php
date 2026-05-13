@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Enum;
+namespace App\Models\Enums;
 
-enum RoleType: string {
+enum UserRole: string {
     case STUDENT = 'student';
     case ADMIN = 'admin';
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Enum;
+namespace App\Models\Enums;
 
 enum ContentType: string {
     case IMAGE = 'image';
