@@ -3,7 +3,6 @@
 namespace App\Models;
 
 class Course {
-    // attributes
     private int $id;
     private string $name;
     private string $description;
@@ -11,7 +10,6 @@ class Course {
     /** @var Section[] */
     private array $sections;
 
-    // getters and setters
     public function getId(): int
     {
         return $this->id;

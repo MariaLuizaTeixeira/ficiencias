@@ -3,7 +3,6 @@
 namespace App\Models;
 
 class Lesson {
-    // attributes
     private int $id;
     private string $title;
     private Section $section;
@@ -14,7 +13,6 @@ class Lesson {
     private int $position;
     private bool $isLocked;
 
-    // getters and setters
     public function getId(): int
     {
         return $this->id;

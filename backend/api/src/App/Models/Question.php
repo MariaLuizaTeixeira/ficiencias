@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Enum\QuestionType;
+use App\Models\Enums\QuestionType;
 
 abstract class Question {
-    // attributes
-    private int $id;
-    private string $statement;
-    private QuestionType $type;
-    private Lesson $lesson;
+    protected int $id;
+    protected string $statement;
+    protected QuestionType $type;
+    protected Lesson $lesson;
 
-    // getters and setters
     public function getId(): int
     {
         return $this->id;
