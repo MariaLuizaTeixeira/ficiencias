@@ -1,13 +1,23 @@
 <?php
 
-namespace App\Models;
+namespace Model;
 
-use App\Models\Enums\ContentType;
+use Model\enums\ContentType;
 
-class MultipleChoiceQuestion extends Question {
+class OpenQuestion extends Question {
+    private string $correctAnswer;
     private string $content;
     private ContentType $contentType;
 
+    public function getCorrectAnswer(): string
+    {
+        return $this->correctAnswer;
+    }
+
+    public function setCorrectAnswer(string $correctAnswer): void
+    {
+        $this->correctAnswer = $correctAnswer;
+    }
 
     public function getContent(): string
     {

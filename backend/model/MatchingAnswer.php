@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace Model;
 
 class MatchingAnswer extends Answer {
-    private int $id;
     private AssociativeItem $leftItem;
     private AssociativeItem $rightItem;
 

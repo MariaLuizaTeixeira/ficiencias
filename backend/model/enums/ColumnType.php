@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Enums;
+namespace Model\enums;
 
 enum ColumnType: string {
     case A = 'A';

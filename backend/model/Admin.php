@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace Model;
 
 use AllowDynamicProperties;
-use App\Models\Enums\AdminLevel;
-use App\Models\Enums\UserRole;
+use Model\enums\AdminLevel;
+use Model\enums\UserRole;
 
 #[AllowDynamicProperties]
 class Admin extends User {

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace Model;
 
-use App\Models\Enums\ContentType;
+use Model\enums\ContentType;
 
 class Option {
     private int $id;

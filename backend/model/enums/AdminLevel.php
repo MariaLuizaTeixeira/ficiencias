@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Enums;
+namespace Model\enums;
 
 enum AdminLevel: string {
     case EDITOR = 'editor';

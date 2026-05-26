@@ -1,7 +1,7 @@
 <?php
-namespace app\Models;
+namespace Model;
 
-use App\Models\Enums\UserRole;
+use Model\enums\UserRole;
 use DateTime;
 
 abstract class User {

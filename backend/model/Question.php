@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace Model;
 
-use App\Models\Enums\QuestionType;
+use Model\enums\QuestionType;
 
 abstract class Question {
     protected int $id;

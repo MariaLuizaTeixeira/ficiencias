@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Model;
 
 class Section {
     private int $id;

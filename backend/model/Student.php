@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace Model;
 
 use AllowDynamicProperties;
-use App\Models\Enums\StudentGender;
-use App\Models\Enums\UserRole;
+use Model\enums\StudentGender;
+use Model\enums\UserRole;
 use Cassandra\Date;
 
 #[AllowDynamicProperties]
