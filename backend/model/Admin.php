@@ -2,6 +2,7 @@
 
 namespace Model;
 
+require_once __DIR__ . '/User.php';
 use AllowDynamicProperties;
 use Model\enums\AdminLevel;
 use Model\enums\UserRole;
