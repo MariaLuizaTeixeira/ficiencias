@@ -1,15 +1,18 @@
 <?php
 
-namespace Dao;
+namespace Dao\roles;
 
-use Model\Student;
+use model\roles\Student;
+use PDO;
 use Util\Conexao;
 
 class StudentDAO {
     private PDO $conexao;
+    private UserDAO $userDAO;
 
     public function __construct() {
         $this->conexao = Conexao::getConexao();
+        $this->userDAO = new UserDAO();
     }
 
     public function listar(): array {
@@ -22,10 +25,16 @@ class StudentDAO {
     public function criar(Student $student): void {
 
 
-        $sql = "INSERT INTO students (id, lives, streak, birth_date, nickname, gender, phone_number, profile_image_url) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO students (lives, streak, birth_date, nickname, gender, phone_number, profile_image_url) 
+                VALUES (?, ?, ?, ?, ?)";
 
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$student->getId(), $student->getLives(), $student->getStreak(), $student->getBirth(), $student->getNickname(), $student->getGender(), $student->getPhoneNumber(), $student->getProfilePicture()]);
+        $stm->execute([$student->getLives(), $student->getStreak(), $student->getBirth(),
+                       $student->getNickname(), $student->getGender(), $student->getPhoneNumber(),
+                       $student->getProfilePicture()
+        ]);
+
+        $this->userDAO->criar($student);
     }
 
     public function deletar(int $id): void {

@@ -1,15 +1,16 @@
 <?php
 
-namespace Model;
+namespace model\questions;
 
+use Model\enums\ColumnType;
 use Model\enums\ContentType;
 
-class Option {
+class AssociativeItem {
     private int $id;
-    private MultipleChoiceQuestion $question;
     private string $content;
     private ContentType $contentType;
-    private bool $isCorrect;
+    private ColumnType $columnType;
+    private AssociativeQuestion $associativeQuestion;
 
     public function getId(): int
     {
@@ -19,16 +20,6 @@ class Option {
     public function setId(int $id): void
     {
         $this->id = $id;
-    }
-
-    public function getQuestion(): MultipleChoiceQuestion
-    {
-        return $this->question;
-    }
-
-    public function setQuestion(MultipleChoiceQuestion $question): void
-    {
-        $this->question = $question;
     }
 
     public function getContent(): string
@@ -51,13 +42,23 @@ class Option {
         $this->contentType = $contentType;
     }
 
-    public function isCorrect(): bool
+    public function getColumnType(): ColumnType
     {
-        return $this->isCorrect;
+        return $this->columnType;
     }
 
-    public function setIsCorrect(bool $isCorrect): void
+    public function setColumnType(ColumnType $columnType): void
     {
-        $this->isCorrect = $isCorrect;
+        $this->columnType = $columnType;
+    }
+
+    public function getAssociativeQuestion(): AssociativeQuestion
+    {
+        return $this->associativeQuestion;
+    }
+
+    public function setAssociativeQuestion(AssociativeQuestion $associativeQuestion): void
+    {
+        $this->associativeQuestion = $associativeQuestion;
     }
 }

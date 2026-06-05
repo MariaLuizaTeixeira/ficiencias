@@ -1,15 +1,18 @@
 <?php
 
-namespace Dao;
+namespace Dao\roles;
 
-use Model\Admin;
+use Dao\PDO;
+use model\roles\Admin;
 use Util\Conexao;
 
 class AdminDAO {
     private PDO $conexao;
+    private UserDAO $userDAO;
 
     public function __construct() {
         $this->conexao = Conexao::getConexao();
+        $this->userDAO = new UserDAO();
     }
 
     public function listar(): array {
@@ -20,9 +23,11 @@ class AdminDAO {
     }
 
     public function criar(Admin $admin): void {
-        $sql = "INSERT INTO admins (id, admin_level) VALUES (?, ?)";
+        $sql = "INSERT INTO admins (admin_level) VALUES (?)";
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$admin->getId(), $admin->getLevel()]);
+        $stm->execute([$admin->getLevel()]);
+
+        $this->userDAO->criar($admin);
     }
 
     public function deletar(int $id): void {

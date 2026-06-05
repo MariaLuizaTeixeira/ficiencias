@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace model\answers;
 
 class OpenAnswer extends Answer {
     private string $textAnswer;

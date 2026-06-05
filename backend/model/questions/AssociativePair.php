@@ -1,8 +1,9 @@
 <?php
 
-namespace Model;
+namespace model\questions;
 
-class MatchingAnswer extends Answer {
+class AssociativePair {
+    private int $id;
     private AssociativeItem $leftItem;
     private AssociativeItem $rightItem;
 

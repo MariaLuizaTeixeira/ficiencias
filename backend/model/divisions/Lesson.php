@@ -1,6 +1,8 @@
 <?php
 
-namespace Model;
+namespace model\divisions;
+
+use model\questions\Question;
 
 class Lesson {
     private int $id;

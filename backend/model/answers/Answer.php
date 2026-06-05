@@ -1,8 +1,10 @@
 <?php
 
-namespace Model;
+namespace model\answers;
 
 use DateTime;
+use model\questions\Question;
+use model\roles\Student;
 
 abstract class Answer {
     protected int $id;

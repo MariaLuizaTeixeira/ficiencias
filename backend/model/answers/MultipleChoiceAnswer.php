@@ -1,6 +1,8 @@
 <?php
 
-namespace Model;
+namespace model\answers;
+
+use model\questions\Option;
 
 class MultipleChoiceAnswer extends Answer{
     private Option $option;

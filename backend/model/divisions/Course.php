@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace model\divisions;
 
 class Course {
     private int $id;

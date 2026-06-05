@@ -1,6 +1,8 @@
 <?php
 
-namespace Model;
+namespace model\questions;
+
+use model\roles\Student;
 
 class QuestionProgress {
     private Student $student;

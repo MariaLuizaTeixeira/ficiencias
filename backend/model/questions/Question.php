@@ -1,7 +1,8 @@
 <?php
 
-namespace Model;
+namespace model\questions;
 
+use model\divisions\Lesson;
 use Model\enums\QuestionType;
 
 abstract class Question {
