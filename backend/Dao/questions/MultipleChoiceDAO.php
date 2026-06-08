@@ -13,11 +13,11 @@ class MultipleChoiceDAO {
         $this->conexao = Conexao::getConexao();
     }
 
-    public function criar(MultipleChoiceQuestion $multipleChoiceQuestion): void {
-        $sql = "INSERT INTO multiple_choice_questions (content, content_type) VALUES (?, ?)";
+    public function criar(MultipleChoiceQuestion $multipleChoiceQuestion, int $questionId): void {
+        $sql = "INSERT INTO multiple_choice_questions (id, content, content_type) VALUES (?, ?, ?)";
 
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$multipleChoiceQuestion->getContent(), $multipleChoiceQuestion->getContentType()]);
+        $stm->execute([$questionId, $multipleChoiceQuestion->getContent(), $multipleChoiceQuestion->getContentType()]);
     }
 
 }
