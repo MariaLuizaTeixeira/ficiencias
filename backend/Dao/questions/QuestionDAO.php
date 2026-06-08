@@ -13,11 +13,13 @@ class QuestionDAO {
         $this->conexao = Conexao::getConexao();
     }
 
-    public function criar(Question $question): void {
+    public function criar(Question $question): int {
         $sql = "INSERT INTO questions (statement, type_id, lesson_id) VALUES (?, ?, ?)";
 
         $stm = $this->conexao->prepare($sql);
         $stm->execute([$question->getStatement(), $question->getType(), $question->getLesson()->getId()]);
+
+        return (int) $this->conexao->lastInsertId();
     }
 
 }
