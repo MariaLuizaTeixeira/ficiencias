@@ -1,14 +1,16 @@
 <?php
 
-namespace Mapper;
-use model\questions\MultipleChoiceQuestion;
-use model\questions\OpenQuestion;
-use model\questions\Question;
+namespace App\mapper;
+use App\model\enums\ContentType;
+use App\model\enums\QuestionType;
+use App\model\questions\MultipleChoiceQuestion;
+use App\model\questions\OpenQuestion;
+use App\model\questions\Question;
 
 class QuestionMapper {
     public function arrayToQuestion(array $data): Question {
         $question = new Question();
-        $question->setType($data['type']);
+        $question->setType(QuestionType::from($data['type']));
         $question->setLesson($data['lesson']);
         $question->setStatement($data['statement']);
 
@@ -18,7 +20,7 @@ class QuestionMapper {
         $openQuestion = new OpenQuestion();
         $openQuestion->setCorrectAnswer($data['correct-answer']);
         $openQuestion->setContent($data['content']);
-        $openQuestion->setContentType($data['contentType']);
+        $openQuestion->setContentType(ContentType::from($data['content-type']));
 
         return $openQuestion;
     }
@@ -26,7 +28,7 @@ class QuestionMapper {
     public function arrayToMultipleChoice(array $data): MultipleChoiceQuestion {
         $multipleChoiceQuestion = new MultipleChoiceQuestion();
         $multipleChoiceQuestion->setContent($data['content']);
-        $multipleChoiceQuestion->setContentType($data['contentType']);
+        $multipleChoiceQuestion->setContentType(ContentType::from($data['content-type']));
 
         return $multipleChoiceQuestion;
     }
