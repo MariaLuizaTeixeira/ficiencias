@@ -1,10 +1,10 @@
 <?php
 
-namespace Dao\roles;
+namespace App\Dao\roles;
 
-use model\roles\User;
+use App\model\roles\User;
 use PDO;
-use Util\Conexao;
+use App\util\Conexao;
 
 class UserDAO {
     private PDO $conexao;

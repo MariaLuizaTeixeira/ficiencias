@@ -1,9 +1,9 @@
 <?php
 
-namespace Dao\questions;
+namespace App\Dao\questions;
 
-use model\questions\MultipleChoiceQuestion;
-use Util\Conexao;
+use App\model\questions\MultipleChoiceQuestion;
+use App\util\Conexao;
 use PDO;
 
 class MultipleChoiceDAO {

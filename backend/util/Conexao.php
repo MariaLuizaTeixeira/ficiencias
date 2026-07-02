@@ -1,6 +1,7 @@
 <?php
 
-namespace Util;
+namespace App\util;
+require_once __DIR__ . '/config.php';
 
 use PDO;
 

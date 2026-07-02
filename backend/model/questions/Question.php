@@ -1,11 +1,11 @@
 <?php
 
-namespace model\questions;
+namespace App\model\questions;
 
-use model\divisions\Lesson;
-use Model\enums\QuestionType;
+use App\model\divisions\Lesson;
+use App\model\enums\QuestionType;
 
-abstract class Question {
+class Question {
     protected int $id;
     protected string $statement;
     protected QuestionType $type;

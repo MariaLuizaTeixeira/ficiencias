@@ -2,9 +2,9 @@
 
 namespace Dao\roles;
 
-use model\roles\Student;
+use App\model\roles\Student;
 use PDO;
-use Util\Conexao;
+use App\util\Conexao;
 
 class StudentDAO {
     private PDO $conexao;

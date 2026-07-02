@@ -1,8 +1,8 @@
 <?php
 
-namespace model\answers;
+namespace App\model\answers;
 
-use model\questions\AssociativeItem;
+use App\model\questions\AssociativeItem;
 
 class MatchingAnswer extends Answer {
     private AssociativeItem $leftItem;

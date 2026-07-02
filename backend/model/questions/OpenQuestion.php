@@ -1,8 +1,8 @@
 <?php
 
-namespace model\questions;
+namespace App\model\questions;
 
-use Model\enums\ContentType;
+use App\model\enums\ContentType;
 
 class OpenQuestion extends Question {
     private string $correctAnswer;

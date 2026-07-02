@@ -1,10 +1,10 @@
 <?php
 
-namespace controller\questions;
+namespace App\controller\questions;
 
-use Dao\questions\MultipleChoiceDAO;
-use Dao\questions\QuestionDAO;
-use Mapper\QuestionMapper;
+use App\mapper\QuestionMapper;
+use App\Dao\questions\MultipleChoiceDAO;
+use App\Dao\questions\QuestionDAO;
 
 class MultipleChoiceQuestionController {
     private MultipleChoiceDAO $multipleChoiceDAO;

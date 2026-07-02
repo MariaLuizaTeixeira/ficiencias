@@ -1,9 +1,9 @@
 <?php
 
-namespace controller\questions;
-use Dao\questions\OpenQuestionDao;
-use Dao\questions\QuestionDAO;
-use Mapper\QuestionMapper;
+namespace App\controller\questions;
+use App\Dao\questions\OpenQuestionDAO;
+use App\Dao\questions\QuestionDAO;
+use App\mapper\QuestionMapper;
 
 class OpenQuestionController {
     private OpenQuestionDAO $openQuestionDAO;

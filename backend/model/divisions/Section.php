@@ -1,6 +1,6 @@
 <?php
 
-namespace model\divisions;
+namespace App\model\divisions;
 
 class Section {
     private int $id;

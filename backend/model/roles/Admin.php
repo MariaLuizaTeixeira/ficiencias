@@ -1,12 +1,12 @@
 <?php
 
-namespace model\roles;
+namespace App\model\roles;
 
 require_once __DIR__ . '/User.php';
 
 use AllowDynamicProperties;
-use Model\enums\AdminLevel;
-use Model\enums\UserRole;
+use App\model\enums\AdminLevel;
+use App\model\enums\UserRole;
 
 #[AllowDynamicProperties]
 class Admin extends User {

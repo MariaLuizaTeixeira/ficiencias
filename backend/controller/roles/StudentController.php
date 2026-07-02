@@ -3,9 +3,9 @@
 namespace controller\roles;
 
 use AllowDynamicProperties;
-use Dao\roles\StudentDAO;
-use Dao\roles\UserDAO;
-use model\roles\Student;
+use App\Dao\roles\StudentDAO;
+use App\Dao\roles\UserDAO;
+use App\model\roles\Student;
 
 #[AllowDynamicProperties]
 class StudentController extends UserController {

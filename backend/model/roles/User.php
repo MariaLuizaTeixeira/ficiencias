@@ -1,8 +1,8 @@
 <?php
-namespace model\roles;
+namespace App\model\roles;
 
 use DateTime;
-use Model\enums\UserRole;
+use App\model\enums\UserRole;
 
 abstract class User {
     protected int $id;

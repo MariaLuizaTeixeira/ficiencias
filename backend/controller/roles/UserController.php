@@ -1,7 +1,7 @@
 <?php
 
 namespace controller\roles;
-use Dao\roles\UserDAO;
+use App\Dao\roles\UserDAO;
 
 class UserController {
     private UserDAO $userDAO;

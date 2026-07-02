@@ -1,9 +1,9 @@
 <?php
 
-namespace Dao\questions;
+namespace App\Dao\questions;
 
-use Model\questions\Question;
-use Util\Conexao;
+use App\model\questions\Question;
+use App\util\Conexao;
 use PDO;
 
 class QuestionDAO {
@@ -14,10 +14,10 @@ class QuestionDAO {
     }
 
     public function criar(Question $question): int {
-        $sql = "INSERT INTO questions (statement, type_id, lesson_id) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO questions (statement, type, lesson_id) VALUES (?, ?, ?)";
 
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$question->getStatement(), $question->getType(), $question->getLesson()->getId()]);
+        $stm->execute([$question->getStatement(), $question->getType()->value, $question->getLesson()->getId()]);
 
         return (int) $this->conexao->lastInsertId();
     }

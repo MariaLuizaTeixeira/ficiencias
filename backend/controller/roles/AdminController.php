@@ -3,9 +3,9 @@
 namespace controller\roles;
 
 use AllowDynamicProperties;
-use Dao\roles\AdminDAO;
-use Dao\roles\UserDAO;
-use model\roles\Admin;
+use App\Dao\roles\AdminDAO;
+use App\Dao\roles\UserDAO;
+use App\model\roles\Admin;
 
 #[AllowDynamicProperties]
 class AdminController extends UserController {

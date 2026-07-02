@@ -1,11 +1,11 @@
 <?php
 
-namespace model\roles;
+namespace App\model\roles;
 
 use AllowDynamicProperties;
 use Cassandra\Date;
-use Model\enums\StudentGender;
-use Model\enums\UserRole;
+use App\model\enums\StudentGender;
+use App\model\enums\UserRole;
 
 #[AllowDynamicProperties]
 class Student extends User {

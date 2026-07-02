@@ -1,9 +1,9 @@
 <?php
 
-namespace model\questions;
+namespace App\model\questions;
 
-use Model\enums\ColumnType;
-use Model\enums\ContentType;
+use App\model\enums\ColumnType;
+use App\model\enums\ContentType;
 
 class AssociativeItem {
     private int $id;
