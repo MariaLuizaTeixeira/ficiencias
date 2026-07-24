@@ -17,7 +17,7 @@ class MultipleChoiceDAO {
         $sql = "INSERT INTO multiple_choice_questions (id, content, content_type) VALUES (?, ?, ?)";
 
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$questionId, $multipleChoiceQuestion->getContent(), $multipleChoiceQuestion->getContentType()]);
+        $stm->execute([$questionId, $multipleChoiceQuestion->getContent(), $multipleChoiceQuestion->getContentType()->value]);
     }
 
 }
