@@ -1,0 +1,39 @@
+<?php
+
+require_once(__DIR__ . "/../util/Connection.php");
+require_once(__DIR__ . "/../model/Curso.php");
+
+class CursoDAO
+{
+    public function list()
+    {
+        $sql = "SELECT * FROM cursos";
+
+        $conn = Connection::getConnection();
+
+        $stm = $conn->prepare($sql);
+        $stm->execute();
+
+        $tabela = $stm->fetchAll();
+
+        return $this->map($tabela);
+    }
+
+    private function map(array $tabela)
+    {
+        $cursos = array();
+
+        foreach ($tabela as $linha) {
+
+            $curso = new Curso();
+
+            $curso->setId($linha["id"]);
+            $curso->setNome($linha["nome"]);
+            $curso->setDescricao($linha["descricao"]);
+
+            array_push($cursos, $curso);
+        }
+
+        return $cursos;
+    }
+}
