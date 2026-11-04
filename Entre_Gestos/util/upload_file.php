@@ -2,17 +2,17 @@
 
 
 /***************************************************
- * Somente estas origens podem enviar imagens *
+ * Only these origins are allowed to upload images *
  ***************************************************/
 $accepted_origins = array("http://localhost", "http://192.168.1.1", "http://example.com");
 
 /*********************************************
- * Altere esta linha para definir a pasta de upload *
+ * Change this line to set the upload folder *
  *********************************************/
 $imageFolder = UPLOAD_PATH;
 
 if (isset($_SERVER['HTTP_ORIGIN'])) {
-    // requisições da mesma origem não enviam o cabeçalho Origin. Se ele existir, precisa ser válido.
+    // same-origin requests won't set an origin. If the origin is set, it must be valid.
     if (in_array($_SERVER['HTTP_ORIGIN'], $accepted_origins)) {
         header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
     } else {
@@ -21,7 +21,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     }
 }
 
-// Não processa o upload em requisições do tipo OPTIONS
+// Don't attempt to process the upload on an OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     header("Access-Control-Allow-Methods: POST, OPTIONS");
     return;
@@ -37,31 +37,31 @@ if (is_uploaded_file($temp['tmp_name'])) {
     // header('Access-Control-Allow-Credentials: true');
     // header('P3P: CP="There is no P3P policy."');
 
-    // Valida o nome do arquivo
+    // Sanitize input
     if (preg_match("/([^\w\s\d\-_~,;:\[\]\(\).])|([\.]{2,})/", $temp['name'])) {
         header("HTTP/1.1 400 Invalid file name.");
         return;
     }
 
-    // Verifica a extensão
+    // Verify extension
     if (!in_array(strtolower(pathinfo($temp['name'], PATHINFO_EXTENSION)), array("gif", "jpg", "png"))) {
         header("HTTP/1.1 400 Invalid extension.");
         return;
     }
 
-    // Aceita o upload se não houver origem ou se ela for permitida
+    // Accept upload if there was no origin, or if it is an accepted origin
     $filetowrite = $imageFolder . $temp['name'];
     move_uploaded_file($temp['tmp_name'], $filetowrite);
 
-    // Descobre a URL base
+    // Determine the base URL
     $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https://" : "http://";
     $baseurl = $protocol . $_SERVER["HTTP_HOST"] . rtrim(dirname($_SERVER['REQUEST_URI']), "/") . "/";
 
-    // Responde ao upload bem-sucedido com JSON.
-    // A chave location informa o caminho da imagem salva.
-    // { location : '/caminho/da/imagem/enviada'}
+    // Respond to the successful upload with JSON.
+    // Use a location key to specify the path to the saved image resource.
+    // { location : '/your/uploaded/image/file'}
     echo json_encode(array('location' => $baseurl . $filetowrite));
 } else {
-    // Avisa o editor que o upload falhou
+    // Notify editor that the upload failed
     header("HTTP/1.1 500 Server Error");
 }
