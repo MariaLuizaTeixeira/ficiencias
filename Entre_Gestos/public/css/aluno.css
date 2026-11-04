@@ -1,0 +1,328 @@
+/* =====================================================================
+   aluno.css — visual da área do aluno.
+   Usa a MESMA paleta do painel admin (barra lateral marrom, fundo claro,
+   cards brancos com borda fina e botões marrons arredondados).
+   Carregue depois do global.css e do CSS específico de cada página.
+   ===================================================================== */
+
+/* ===== CORES (iguais às do admin.css) ===== */
+:root {
+    --al-bg: #f7f8fb;
+    --al-card: #ffffff;
+    --al-borda: #e8e8ee;
+    --al-texto: #1f2430;
+    --al-suave: #6b7280;
+    --al-marrom: #98774e;
+    --al-marrom-esc: #7d5f3c;
+    --al-marrom-claro: #fbf3e8;
+    --al-marrom-borda: #ecd9bd;
+}
+
+body.aluno-layout {
+    display: block;
+    background: var(--al-bg);
+    color: var(--al-texto);
+    min-height: 100vh;
+}
+
+/* ===== BARRA LATERAL (mesmo desenho do admin) ===== */
+.aluno-layout .sidebar {
+    width: 230px;
+    height: 100vh;
+    background: linear-gradient(180deg, #b98c5d 0%, #a07a4c 55%, #8f6c43 100%);
+    padding: 20px 12px 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    color: #fff;
+    overflow-y: auto;
+    border-right: 0;
+}
+
+.aluno-layout .sb-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 6px 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.aluno-layout .sb-avatar {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #f7e3c4;
+    border: 3px solid #b5885d;
+    box-shadow: 0 3px 0 #7d5f3c;
+    color: #7d5f3c;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: .5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aluno-layout .sb-title b { display: block; font-size: 17px; font-weight: 800; line-height: 1.15; }
+.aluno-layout .sb-title small { display: block; font-size: 12px; opacity: .85; font-weight: 600; }
+
+.aluno-layout .sb-logado {
+    margin: 0 2px 14px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .18);
+    overflow: hidden;
+}
+.aluno-layout .sb-logado small { display: block; font-size: 11px; opacity: .9; font-weight: 600; }
+.aluno-layout .sb-logado b {
+    display: block;
+    font-size: 14px;
+    font-weight: 800;
+    margin: 2px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.aluno-layout .sb-divider { height: 1px; background: rgba(255, 255, 255, .28); margin: 0 0 14px; }
+
+.aluno-layout .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    margin-bottom: 6px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background .15s;
+}
+.aluno-layout .nav-link:hover { background: rgba(255, 255, 255, .16); }
+.aluno-layout .nav-link.active { background: #fff; color: #a07a4c; }
+
+.aluno-layout .nav-link svg,
+.aluno-layout .sb-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.aluno-layout .sb-bottom {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, .28);
+    display: grid;
+    gap: 8px;
+}
+
+.aluno-layout .sb-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 13px;
+    text-decoration: none;
+    transition: filter .15s;
+}
+.aluno-layout .sb-btn:hover { filter: brightness(1.06); }
+.aluno-layout .sb-app  { background: rgba(0, 0, 0, .16); color: #fff; }
+.aluno-layout .sb-sair { background: #fdf3e4; color: #7d5f3c; }
+
+/* ===== CONTEÚDO ===== */
+.al-main {
+    margin-left: 230px;
+    padding: 36px 40px;
+}
+
+.al-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+.al-page-header h1 { font-size: 28px; font-weight: 800; color: #1f2430; }
+
+/* vidas (aparece no topo da trilha) */
+.al-vidas {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid #f5c6c6;
+    background: #fff1f1;
+    color: #d93a3a;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+/* botões marrons (mesmos do admin) */
+.al-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #a98558, #8f6c43);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: filter .15s;
+}
+.al-btn:hover { filter: brightness(1.06); }
+.al-btn:active { filter: brightness(.95); }
+.al-btn-claro { background: #fbf3e8; color: #7d5f3c; border-color: #ecd9bd; }
+.al-btn-cinza { background: #eceff3; color: #3c3c3c; }
+
+/* rodapé acompanha a área de conteúdo (fica ao lado da barra lateral) */
+.aluno-layout .app-footer { margin-left: 230px; width: auto; }
+
+/* ===== CELULAR: a barra lateral vira gaveta ===== */
+.al-burger, .al-overlay { display: none; }
+@media (max-width: 900px) {
+    .aluno-layout .sidebar {
+        transform: translateX(-110%);
+        visibility: hidden;
+        transition: transform .22s ease, visibility .22s ease;
+        box-shadow: 8px 0 30px rgba(0, 0, 0, .18);
+    }
+    body.al-aberto .sidebar { transform: translateX(0); visibility: visible; }
+    .al-main { margin-left: 0; padding: 76px 16px 24px; }
+    .aluno-layout .app-footer { margin-left: 0; }
+    .al-burger {
+        display: flex; align-items: center; justify-content: center;
+        position: fixed; top: 14px; left: 14px; z-index: 120;
+        width: 46px; height: 46px; border: 0; border-radius: 50%;
+        background: #98774e; color: #fff; font-size: 22px; cursor: pointer;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+    }
+    .al-overlay {
+        display: block; position: fixed; inset: 0; z-index: 90; background: rgba(20, 30, 45, .35);
+        opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility .2s ease;
+    }
+    body.al-aberto .al-overlay { opacity: 1; visibility: visible; }
+    body.al-aberto .al-burger { display: none; }
+}
+
+
+/* ===== CABEÇALHO (trilha, sem barra lateral): marca | vidas | bolinha com o nome ===== */
+body.sem-menu .al-main { margin-left: 0; }
+
+.al-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 40px;
+    background: #fff;
+    border-bottom: 1px solid var(--al-borda);
+}
+.al-topbar .tb-esq, .al-topbar .tb-dir { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.al-topbar .tb-marca { font-size: 20px; font-weight: 900; color: var(--al-marrom-esc); }
+/* caixinha que abre ao clicar na bolinha */
+.al-topbar .tb-menu { position: relative; }
+.al-topbar .tb-perfil { background: none; border: 0; cursor: pointer; font-family: inherit; padding: 0; }
+.al-topbar .tb-caixa {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    min-width: 190px;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid var(--al-borda);
+    border-radius: 16px;
+    box-shadow: 0 10px 28px rgba(20, 30, 45, .16);
+    z-index: 60;
+}
+.al-topbar .tb-menu.aberto .tb-caixa { display: block; }
+.al-topbar .tb-caixa a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    color: var(--al-marrom-esc);
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+}
+.al-topbar .tb-caixa a:hover { background: var(--al-marrom-claro); }
+.al-topbar .tb-caixa a.tb-sair { color: #b3402f; margin-top: 4px; border-top: 1px solid var(--al-borda); border-radius: 0 0 12px 12px; }
+.al-topbar .tb-caixa svg {
+    width: 20px; height: 20px; flex-shrink: 0;
+    fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.al-topbar .tb-perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    text-decoration: none;
+    color: var(--al-texto);
+    font-weight: 800;
+    font-size: 14px;
+}
+.al-topbar .tb-perfil:hover .tb-avatar { filter: brightness(1.05); }
+.al-topbar .tb-avatar {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #f7e3c4;
+    border: 3px solid #b5885d;
+    box-shadow: 0 3px 0 #7d5f3c;
+    color: #7d5f3c;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: .5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.al-topbar .tb-nome { max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+@media (max-width: 900px) {
+    .al-topbar { padding: 10px 16px; }
+    .al-topbar .tb-marca { display: none; }
+    body.sem-menu .al-main { padding-top: 24px; }
+}
+@media (max-width: 520px) {
+    .al-topbar .tb-nome { display: none; }
+}
+
+
+/* ===== temporizador da próxima vida (cabeçalho da trilha) + aviso ===== */
+.al-vidas-tempo { color: #98774e; font-size: 13px; font-weight: 800; margin-left: 4px; }
+.al-vidas-tempo[hidden] { display: none; }
+.aviso-vida {
+    position: fixed; top: 74px; left: 50%; transform: translateX(-50%); z-index: 1100;
+    background: #fff; border: 2px solid #ff4b4b; color: #ea2b2b;
+    padding: 12px 22px; border-radius: 999px; font-size: 17px; font-weight: 900;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+.aviso-vida[hidden] { display: none; }
+.aviso-vida.mostra { animation: aviso-desce .4s cubic-bezier(.2, 1.3, .4, 1) both; }
+@keyframes aviso-desce { from { opacity: 0; transform: translate(-50%, -30px); } to { opacity: 1; transform: translate(-50%, 0); } }
