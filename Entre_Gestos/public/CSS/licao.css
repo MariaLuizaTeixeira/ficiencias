@@ -257,6 +257,12 @@ body {
     border-radius: 999px;
 }
 
+/*Ajuste de imagem e video na atividade  */
+.enunciado video, .enunciado img {
+    width: 100% !important;
+    border-radius: 5px !important;
+    overflow: hidden;
+}
 
 /* coração do contador de vidas dá uma batida quando o aluno erra */
 .vidas-balanco { display: inline-block; animation: coracao-balanco 0.7s ease-in-out; }
