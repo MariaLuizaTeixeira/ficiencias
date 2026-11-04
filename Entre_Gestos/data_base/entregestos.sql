@@ -35,6 +35,7 @@ CREATE TABLE cursos (
     id bigint NOT NULL AUTO_INCREMENT,
     nome varchar(64) NOT NULL,
     descricao text,
+     
     PRIMARY KEY (id)
 );
 
@@ -75,6 +76,8 @@ CREATE TABLE alunos (
     apelido varchar(16) DEFAULT NULL,
     genero varchar(16) DEFAULT NULL,
     numero_telefone varchar(15) DEFAULT NULL,
+    recarga_inicio bigint DEFAULT NULL, -- quando a recarga de vidas começou (horário Unix, em segundos). NULL = sem recarga em andamento.
+    vidas_bloqueadas tinyint(1) NOT NULL DEFAULT 0, -- 1 = as vidas acabaram: só volta a praticar com as vidas completas.
     PRIMARY KEY (id)
 );
 
@@ -84,6 +87,8 @@ CREATE TABLE alfabeto (
     CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
     video_id varchar(20) NULL,
     ordem int NOT NULL,
+     canal_nome VARCHAR(100) NULL,
+    canal_url VARCHAR(255) NULL,
     PRIMARY KEY (id),
     UNIQUE KEY (letra)
 );
@@ -110,7 +115,6 @@ CREATE TABLE questoes (
     FOREIGN KEY (tipo) REFERENCES tipos_questao(nome),
     FOREIGN KEY (licao_id) REFERENCES licoes(id) ON DELETE CASCADE
 );
-ALTER TABLE questoes ADD COLUMN titulo varchar(150) NOT NULL DEFAULT '' AFTER id;
 
 CREATE TABLE questoes_abertas (
     id bigint NOT NULL,
@@ -293,7 +297,7 @@ INSERT INTO secoes VALUES
  'geral');
 
 
-INSERT INTO alunos VALUES
+INSERT INTO alunos (id, id_usuario, vidas, sequencia, data_nascimento, apelido, genero, numero_telefone) VALUES
 (1, 0, 5, 5, '1989-08-16', '', NULL, NULL),
 (2, 11, 5, 0, NULL, NULL, NULL, NULL),
 (3, 13, 5, 0, NULL, NULL, NULL, NULL),
@@ -352,31 +356,28 @@ INSERT INTO licoes VALUES
 (11,1,'Hamlet',1,0),
 (12,3,'dias',3,1);
 
-
 -- ==========================================
 -- QUESTÕES
 -- ==========================================
 
-INSERT INTO questoes VALUES
-(1,'Como se diz \'Olá\' em LIBRAS?','multipla_escolha',9),
-(2,'Como é a letra \'A\' em LIBRAS?','multipla_escolha',1),
-(3,'Qual a expressão facial mais comum ao sinalizar \'Bom dia\'?','multipla_escolha',2),
-(4,'Para expressar QUANTIDADE, como fazemos o número 3 em LIBRAS?','multipla_escolha',3),
-(5,'Qual é a combinação de sinais para perguntar \'Tudo bem?\'','multipla_escolha',4),
-(6,'Geralmente, o sinal de \'Mãe\' envolve tocar qual parte do corpo?','multipla_escolha',5),
-(7,'O sinal da cor \'Amarelo\' é feito passando o dedo indicador em qual região?','multipla_escolha',6),
-(8,'Para expressar que está \'Frio\', qual movimento corporal usamos?','multipla_escolha',7),
-(9,'Como se sinaliza a palavra \'Água\' em LIBRAS?','multipla_escolha',8),
-(10,'Qual é o sinal correto para a cor "Azul" em LIBRAS?','multipla_escolha',6),
-(11,'Como se sinaliza a palavra "Quente" em LIBRAS?','multipla_escolha',7),
-(12,'Qual é o sinal correto para "Maçã" em LIBRAS?','multipla_escolha',8),
-(13,'Associe cada saudação ao seu sinal em LIBRAS.','associacao',1),
-(14,'Associe cada sinal ao membro da família em LIBRAS.','associacao',5),
-(15,'Relacione cada cor ao seu sinal em LIBRAS.','associacao',6),
-(17,'Quantos dedos são levantados para representar o número 5 em LIBRAS?','aberta',3),
-(18,'Qual palavra é representada pelo sinal de mão espalmada balançando de um lado para o outro?','aberta',4);
-
-
+INSERT INTO questoes (id, titulo, enunciado, tipo, licao_id) VALUES
+(1,  'Como se diz ''Olá'' em LIBRAS?', 'Assinale a opção com o sinal de Olá.', 'multipla_escolha', 9),
+(2,  'Como é a letra ''A'' em LIBRAS?', 'Selecione a opção correta', 'multipla_escolha', 1),
+(3,  'Qual a expressão facial mais comum ao sinalizar ''Bom dia''?', 'Qual a expressão facial mais comum ao sinalizar ''Bom dia''?', 'multipla_escolha', 2),
+(4,  'Para expressar QUANTIDADE, como fazemos o número 3 em LIBRAS?', 'Para expressar QUANTIDADE, como fazemos o número 3 em LIBRAS?', 'multipla_escolha', 3),
+(5,  'Qual é a combinação de sinais para perguntar ''Tudo bem?''', 'Qual é a combinação de sinais para perguntar ''Tudo bem?''', 'multipla_escolha', 4),
+(6,  'Geralmente, o sinal de ''Mãe'' envolve tocar qual parte do corpo?', 'Geralmente, o sinal de ''Mãe'' envolve tocar qual parte do corpo?', 'multipla_escolha', 5),
+(7,  'O sinal da cor ''Amarelo'' é feito passando o dedo indicador em qual região?', 'O sinal da cor ''Amarelo'' é feito passando o dedo indicador em qual região?', 'multipla_escolha', 6),
+(8,  'Para expressar que está ''Frio'', qual movimento corporal usamos?', 'Para expressar que está ''Frio'', qual movimento corporal usamos?', 'multipla_escolha', 7),
+(9,  'Como se sinaliza a palavra ''Água'' em LIBRAS?', 'Como se sinaliza a palavra ''Água'' em LIBRAS?', 'multipla_escolha', 8),
+(10, 'Qual é o sinal correto para a cor "Azul" em LIBRAS?', 'Qual é o sinal correto para a cor "Azul" em LIBRAS?', 'multipla_escolha', 6),
+(11, 'Como se sinaliza a palavra "Quente" em LIBRAS?', 'Como se sinaliza a palavra "Quente" em LIBRAS?', 'multipla_escolha', 7),
+(12, 'Qual é o sinal correto para "Maçã" em LIBRAS?', 'Qual é o sinal correto para "Maçã" em LIBRAS?', 'multipla_escolha', 8),
+(13, 'Associe cada saudação ao seu sinal em LIBRAS.', 'Associe cada saudação ao seu sinal em LIBRAS.', 'associacao', 1),
+(14, 'Associe cada sinal ao membro da família em LIBRAS.', 'Associe cada sinal ao membro da família em LIBRAS.', 'associacao', 5),
+(15, 'Relacione cada cor ao seu sinal em LIBRAS.', 'Relacione cada cor ao seu sinal em LIBRAS.', 'associacao', 6),
+(17, 'Quantos dedos são levantados para representar o número 5 em LIBRAS?', 'Quantos dedos são levantados para representar o número 5 em LIBRAS?', 'aberta', 3),
+(18, 'Qual palavra é representada pelo sinal de mão espalmada balançando de um lado para o outro?', 'Qual palavra é representada pelo sinal de mão espalmada balançando de um lado para o outro?', 'aberta', 4);
 -- ==========================================
 -- QUESTÕES DE MÚLTIPLA ESCOLHA
 -- ==========================================
