@@ -39,6 +39,26 @@ if ($q_idx < $totalQuestoes) {
     $progresso = 100;
 }
 
+if($questao) {
+    $enunciado = str_replace(
+    '../../../public/uploads/videos/',
+    '../../public/uploads/videos/',
+    $questao->getEnunciado());
+
+    $enunciado = str_replace(
+    '../../../public/uploads/images/',
+    '../../public/uploads/images/',
+    $enunciado);
+
+    $enunciado = preg_replace(
+    '/(<video\b[^>]*?)\s+style=(["\']).*?\2/i',
+    '$1', $enunciado);
+
+    $enunciado = preg_replace(
+    '/\s+(?:width|height)\s*=\s*(["\']).*?\1/i',
+    '',$enunciado);
+}
+
 
 // Vidas reais do aluno logado (já soma as que a recarga devolveu; quem nunca errou tem 5)
 $estadoVidas = (new AlunoService())->estadoVidas((int) $auth->getUsuarioLogadoId());
