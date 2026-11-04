@@ -203,6 +203,6 @@ if ($estadoVidas['bloqueado']) {
             progressoPercentual: <?= ($totalQuestoes > 0) ? (($q_idx + 1) / $totalQuestoes) * 100 : 100 ?>
         };
     </script>
-    <script src="../../public/JS/licao.js"></script>
+    <script src="../../public/js/licao.js"></script>
 </body>
 </html>

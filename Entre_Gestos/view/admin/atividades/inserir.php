@@ -150,7 +150,9 @@ require_once(__DIR__ . "/../componentes/admin_header.php");
 <script src="https://cdn.tiny.cloud/1/rupq4ijnqoyqaluhhq0dtziysj5o7bzz79v3t8vl3551haba/tinymce/7/tinymce.min.js"></script>
 
 <script>const BASE_URL = <?= json_encode(BASE_URL) ?>;</script>
-<script src="<?= $webBase ?>/public/JS/atividades_inserir.js"></script>
+
+<script src="<?= $webBase ?>/public/js/atividades_inserir.js"></script>
+<script src="<?= $webBase ?>/public/js/editor_enunciado.js"></script>
 
 
 

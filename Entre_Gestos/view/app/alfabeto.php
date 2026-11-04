@@ -105,7 +105,7 @@ $letras = $alfabetoCtrl->listar();
         </p>
     </footer>
 
-    <script src="../../public/JS/alfabeto.js"></script>
+    <script src="../../public/js/alfabeto.js"></script>
 
 </body>
 

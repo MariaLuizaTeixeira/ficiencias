@@ -133,7 +133,7 @@ require_once(__DIR__ . "/../componentes/admin_header.php");
         <!-- Enunciado -->
         <div class="form-group">
             <label>Enunciado</label>
-            <textarea name="enunciado" class="form-control" required rows="3"
+            <textarea id="enunciado" name="enunciado" class="form-control" required rows="3"
                       placeholder="Escreva aqui a pergunta ou instrução da atividade..."><?= htmlspecialchars($atividade['enunciado']) ?></textarea>
         </div>
 
@@ -234,6 +234,12 @@ require_once(__DIR__ . "/../componentes/admin_header.php");
     </form>
 </div>
 
-<script src="<?= $webBase ?>/public/JS/atividades_editar.js"></script>
+<script src="https://cdn.tiny.cloud/1/rupq4ijnqoyqaluhhq0dtziysj5o7bzz79v3t8vl3551haba/tinymce/7/tinymce.min.js"></script>
+
+<script>const BASE_URL = <?= json_encode(BASE_URL) ?>;</script>
+
+<script src="<?= $webBase ?>/public/js/atividades_editar.js"></script>
+<script src="<?= $webBase ?>/public/js/editor_enunciado.js"></script>
+
 
 <?php require_once(__DIR__ . "/../componentes/admin_footer.php"); ?>
