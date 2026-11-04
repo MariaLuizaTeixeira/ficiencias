@@ -1,0 +1,98 @@
+/* =====================================================================
+   perfil.css — cards de perfil usados no painel do admin e na página
+   de perfil do aluno. Mesma paleta do admin (cards claros + marrom).
+   ===================================================================== */
+
+.pf-card {
+    background: #fff;
+    border: 1px solid #e8e8ee;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(20, 30, 45, .04);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+.pf-card h2 { font-size: 18px; font-weight: 800; color: #1f2430; margin-bottom: 14px; }
+
+/* duas colunas no painel do admin */
+.pf-duas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 20px; align-items: start; }
+.pf-coluna { min-width: 0; }
+.pf-centro { max-width: 760px; }
+
+/* cabeçalho com avatar */
+.pf-hero { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.pf-foto {
+    width: 92px; height: 92px; border-radius: 50%;
+    border: 5px solid #b5885d; background: #f7e3c4; box-shadow: 0 4px 0 #7d5f3c;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    color: #7d5f3c; font-weight: 900; font-size: 32px; letter-spacing: 1px;
+}
+.pf-hero h1 { font-size: 24px; font-weight: 800; color: #1f2430; }
+.pf-hero p { color: #6b7280; font-weight: 700; overflow-wrap: anywhere; }
+.pf-selo {
+    display: inline-block; margin-top: 8px; padding: 4px 12px; border-radius: 20px;
+    font-size: 13px; font-weight: 800; background: #fbf3e8; color: #7d5f3c; border: 1px solid #ecd9bd;
+}
+.pf-selo.admin { background: #98774e; color: #fff; border-color: #98774e; }
+
+/* progresso do aluno */
+.pf-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center; }
+.pf-stats div { border: 1px solid #e8e8ee; border-radius: 14px; padding: 14px 4px; font-size: 24px; font-weight: 900; background: #fbfbfd; }
+.pf-stats small { display: block; font-size: 12px; color: #6b7280; text-transform: uppercase; font-weight: 800; }
+.pf-barra { height: 12px; background: #eceff3; border-radius: 10px; margin-top: 14px; overflow: hidden; }
+.pf-barra span { display: block; height: 100%; background: linear-gradient(90deg, #b5885d, #98774e); }
+.pf-texto-barra { margin-top: 6px; font-weight: 800; font-size: 14px; }
+
+/* dados da conta */
+.pf-linha { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #f0f0f4; }
+.pf-linha:first-of-type { border-top: 0; }
+.pf-linha span { color: #6b7280; font-weight: 800; font-size: 13px; text-transform: uppercase; }
+.pf-linha b { text-align: right; overflow-wrap: anywhere; font-weight: 700; }
+
+/* formulário */
+.pf-form label { display: block; margin: 14px 0 6px; color: #6b7280; font-weight: 800; font-size: 13px; text-transform: uppercase; }
+.pf-form input[type=text],
+.pf-form input[type=email],
+.pf-form input[type=password],
+.pf-form input[type=tel],
+.pf-form input[type=date],
+.pf-form select {
+    width: 100%; padding: 12px; border: 1px solid #d9dbe3; border-radius: 12px;
+    font-size: 16px; font-weight: 600; font-family: inherit; background: #fff;
+}
+.pf-form input:focus, .pf-form select:focus { outline: none; border-color: #98774e; box-shadow: 0 0 0 3px rgba(152, 119, 78, .15); }
+
+/* botões */
+.pf-btn {
+    display: inline-block; margin-top: 16px; padding: 10px 20px; border: 1px solid transparent;
+    border-radius: 999px; font-size: 14px; font-weight: 800; color: #fff; cursor: pointer;
+    text-decoration: none; font-family: inherit; transition: filter .15s;
+}
+.pf-btn:hover { filter: brightness(1.06); }
+.pf-marrom { background: linear-gradient(180deg, #a98558, #8f6c43); }
+.pf-cinza { background: #eceff3; color: #3c3c3c; }
+.pf-vermelho { background: #fff1f1; color: #d93a3a; border-color: #f5c6c6; }
+
+/* zona de perigo */
+.pf-perigo { border-color: #f5c6c6; }
+.pf-perigo h2 { color: #d93a3a; }
+.pf-perigo p { font-weight: 700; color: #6b7280; }
+
+/* mensagens */
+.pf-aviso { padding: 12px 16px; border-radius: 14px; font-weight: 800; margin-bottom: 16px; }
+.pf-ok  { background: #ecf8e3; color: #3d7a00; border: 1px solid #b9e395; }
+.pf-nok { background: #fff1f1; color: #b81f1f; border: 1px solid #f5c6c6; }
+
+/* atalhos rápidos */
+.pf-atalhos { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.pf-atalhos a {
+    padding: 13px 16px; border: 1px solid #e8e8ee; border-radius: 12px;
+    color: #3c3c3c; font-weight: 800; text-decoration: none; background: #fbfbfd;
+}
+.pf-atalhos a:hover { border-color: #98774e; background: #fbf3e8; color: #7d5f3c; }
+
+@media (max-width: 1100px) { .pf-duas { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+    .pf-stats { grid-template-columns: 1fr; }
+    .pf-linha { flex-direction: column; gap: 2px; }
+    .pf-linha b { text-align: left; }
+}

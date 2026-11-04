@@ -1,0 +1,97 @@
+/* =====================================================================
+   global.css — o que é compartilhado por TODAS as páginas.
+   Carregue este arquivo ANTES do CSS específico de cada página.
+   ===================================================================== */
+
+/* ===== CORES ===== */
+:root {
+    --text-main: #3c3c3c;
+    --text-muted: #afafaf;
+    --border: #e5e5e5;
+
+    --green-main: #58cc02;
+    --green-shadow: #58a700;
+    --blue-main: #1cb0f6;
+    --blue-shadow: #1899d6;
+    --orange-main: #ff9600;
+    --orange-shadow: #cc7800;
+    --purple-main: #ce82ff;
+    --purple-shadow: #a568cc;
+    --red-main: #ff4b4b;
+    --red-shadow: #ea2b2b;
+}
+
+/* ===== BASE (fonte e box-sizing) ===== */
+* {
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ===== BOTÕES DO PAINEL ADMIN (.btn) ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.btn:active {
+    transform: translateY(3px);
+}
+
+.btn-primary {
+    background: var(--green-main);
+    color: white;
+    box-shadow: 0 4px 0 var(--green-shadow);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.btn-warning {
+    background: #FFCFA1;
+    color: white;
+    box-shadow: 0 4px 0 var(--orange-shadow);
+}
+
+.btn-danger {
+    background: var(--red-main);
+    color: white;
+    box-shadow: 0 4px 0 var(--red-shadow);
+}
+
+.btn-sm {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+/* .btn-secondary NÃO está aqui de propósito: no admin.css e no login.css
+   ele tem aparências diferentes, então cada arquivo mantém o seu. */
+
+/* ===== BOTÃO PRINCIPAL DO LOGIN E CADASTRO (.btn-main) ===== */
+/* As margens ficam em login.css e cadastro.css, pois são diferentes. */
+.btn-main {
+    width: 100%;
+    background-color: var(--green-main);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--green-shadow);
+    transition: transform 0.1s;
+}
+
+.btn-main:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 transparent;
+}
